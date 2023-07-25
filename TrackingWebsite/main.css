@@ -1,0 +1,20 @@
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.sourceContainer {
+    width: 30%;
+    height: 400px;
+    border: solid;
+    border-color: black;
+}
+
+.videoContainter {
+    width: 70%;
+    height: 400px;
+    border: solid;
+    border-color: black;
+}
+

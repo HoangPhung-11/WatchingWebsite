@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Main</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sourceContainer">
+            <div class="addDevice">
+                <h2>Add a new device</h2>
+                <form onsubmit="addDevice()">
+                    <label for="userDevice">Enter your device ID</label>
+                    <input type="text" name="userDevice" id="userDevice">
+                    <button type="submit">Submit</button>
+                </form>
+                
+            </div>
+            <div class="deviceManager">
+                <table id="deviceList">
+ 
+                </table>
+            </div>
+        </div>
+        <div class="videoContainter">
+            <table id="videoList">
+                <tr>
+                    <video id="test_video" controls autoplay src="rtsp://your_rtsp_stream/url"></video>
+                </tr>
+                <tr>
+                    <video id="test_video" controls autoplay src="rtsp://your_rtsp_stream/url"></video>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+<script>
+
+function addDevice() {
+    let userDeviceId = document.getElementById("userDevice").value;
+    var tableId = document.getElementById("deviceList");
+    console.log(userDeviceId);
+    addTable(userDeviceId, tableId);
+    event.preventDefault();
+}
+
+function addTable(userDeviceId, tableId){
+    var row = tableId.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var button = document.createElement("button");
+    button.textContent = userDeviceId;
+
+    button.addEventListener("click", function() {
+        addVideo(userDeviceId);
+    });
+
+    cell1.appendChild(button);
+    event.preventDefault();
+}
+
+function addVideo(userDeviceId) {
+    var tableId = document.getElementById("videoList");
+    var row = tableId.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var streamLink = "rtsp://34.142.229.171/" + userDeviceId;
+    var video = document.createElement("video");
+    video.src = streamLink;
+    video.controls = true;
+    video.autoplay = true;
+
+    cell1.appendChild(video);
+    console.log(streamLink);
+    event.preventDefault();
+}
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Devices</title>
+    <link rel="stylesheet" href="tracking.css">
+</head>
+<body>
+    <div id="authenContainer">
+        <div class="btnField">
+            <button id="signIn">Sign up</button>
+            <button id="logIn">Log In</button>
+            <h1 id="msg">Login</h1>
+        </div>
+
+        <form action="/register">
+            <div class = "inputGroup">
+                <div class="inputField">
+                    <label for="userName">User name:</label>
+                    <input type="text" id="fname" name="fname">
+                </div>
+                <div class="inputField">
+                    <label for="userPass">Password:</label>
+                    <input type="password" name="pwd" id="pwd">
+                </div>
+            </div>
+            <button id="submitBtn">Submit</button>
+            <button id="mainBtn" style="visibility: hidden;">Go to main</button>
+        </form>
+        
+
+    </div>
+</body>
+<script src="tracking.js"></script>
+</html>
